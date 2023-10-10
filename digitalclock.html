@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        body{
+            background: linear-gradient(to right, dodgerblue, red);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .clock{
+            font-size: 70px;
+            color: aliceblue;
+            background: linear-gradient(to bottom, dodgerblue, red);
+            padding: 20px;
+            border-radius: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="clock">
+            <span id="hr">00</span> :
+            <span id="min">00</span> :
+            <span id="sec">00</span>
+        </div>
+    </div>
+
+    <script>
+        let hr = document.getElementById("hr");
+        let min = document.getElementById("min");
+        let sec = document.getElementById("sec");
+
+        setInterval(() => {
+            let time = new Date();
+            hr.innerHTML = (time.getHours() < 10 ? "0" : "") + time.getHours();
+            min.innerHTML = (time.getMinutes() < 10 ? "0" : "") + time.getMinutes();
+            sec.innerHTML = (time.getSeconds() < 10 ? "0" : "") + time.getSeconds();
+        })
+    </script>
+    
+</body>
+</html>
